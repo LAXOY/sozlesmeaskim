@@ -3,428 +3,278 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ruşen ❤️</title>
-
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    height:100vh;
-    overflow:hidden;
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#ffd6e7,#ffecef,#fff6f9);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffd6e7 0%, #ffecef 50%, #fff6f9 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
-/* YUMUŞAK ARKA PLAN */
-
-.bg-heart{
-    position:absolute;
-    font-size:24px;
-    opacity:0.15;
-    animation:float 12s linear infinite;
-    pointer-events:none;
+/* YUMUŞAK ARKA PLAN KALPLERİ */
+.bg-heart {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0.12;
+    animation: float 12s linear infinite;
+    pointer-events: none;
 }
 
-@keyframes float{
-
-    0%{
-        transform:translateY(100vh) rotate(0deg);
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
     }
-
-    100%{
-        transform:translateY(-120vh) rotate(360deg);
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
     }
 }
 
 /* ANA KART */
-
-.card{
-    width:90%;
-    max-width:700px;
-    background:rgba(255,255,255,0.65);
-    backdrop-filter:blur(14px);
-    border-radius:28px;
-    padding:50px;
-    text-align:center;
-    box-shadow:0 10px 40px rgba(255,105,180,0.18);
-    z-index:10;
-    position:relative;
+.card {
+    width: 90%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    border-radius: 28px;
+    padding: 40px 25px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(255, 105, 180, 0.15);
+    z-index: 10;
+    position: relative;
 }
 
 /* BAŞLIK */
-
-h1{
-    font-size:42px;
-    color:#ff4f87;
-    margin-bottom:25px;
+h1 {
+    font-size: 38px;
+    color: #ff4f87;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(255, 79, 135, 0.1);
 }
 
-/* YAZI */
-
-p{
-    color:#555;
-    line-height:1.9;
-    font-size:18px;
-    margin-bottom:40px;
+/* PARAGRAF */
+p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 35px;
 }
 
-/* BUTONLAR */
-
-.buttons{
-    position:relative;
-    height:120px;
+/* BUTONLAR KONTEYNERI */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
 }
 
-button{
-    padding:16px 36px;
-    border:none;
-    border-radius:16px;
-    font-size:18px;
-    cursor:pointer;
-    transition:0.25s;
-    font-weight:bold;
+button {
+    padding: 14px 32px;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    outline: none;
 }
 
-#yes{
-    background:#ff4f87;
-    color:white;
-    box-shadow:0 8px 25px rgba(255,79,135,0.3);
+#yes {
+    background: linear-gradient(135deg, #ff4f87, #ff6b9d);
+    color: white;
+    box-shadow: 0 8px 25px rgba(255, 79, 135, 0.3);
+    width: 100%;
 }
 
-#yes:hover{
-    transform:scale(1.06);
+#yes:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 79, 135, 0.4);
 }
 
-#no{
-    background:white;
-    color:#ff4f87;
-    border:2px solid #ff4f87;
-    position:absolute;
-    left:55%;
-    top:0;
+#yes:active {
+    transform: scale(0.98);
+}
+
+#no {
+    background: white;
+    color: #ff4f87;
+    border: 2px solid #ff4f87;
+    width: 100%;
+    position: fixed;
+    padding: 12px 28px;
+}
+
+#no:active {
+    transform: scale(0.95);
 }
 
 /* MESAJ */
-
-#message{
-    margin-top:25px;
-    min-height:40px;
-    font-size:22px;
-    color:#ff4f87;
-    font-weight:600;
+#message {
+    margin-top: 20px;
+    min-height: 35px;
+    font-size: 18px;
+    color: #ff6b9d;
+    font-weight: 600;
+    animation: fadeIn 0.3s ease;
 }
 
-/* EVET EKRANI */
-
-#loveScreen{
-    position:fixed;
-    inset:0;
-    background:linear-gradient(135deg,#ffbfd4,#fff0f5);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    padding:30px;
-    z-index:999;
-}
-
-/* SAYAÇ */
-
-#counter{
-    font-size:30px;
-    color:#ff2f75;
-    margin-top:20px;
-    line-height:1.8;
-    font-weight:bold;
-}
-
-/* BAŞLIK */
-
-.love-title{
-    font-size:56px;
-    color:#ff2f75;
-    margin-bottom:20px;
-}
-
-/* ALT YAZI */
-
-.love-text{
-    font-size:22px;
-    color:#666;
-    max-width:700px;
-    line-height:1.8;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* YAĞAN KALPLER */
-
-.heart{
-    position:absolute;
-    font-size:30px;
-    animation:fall linear forwards;
-    pointer-events:none;
+.heart {
+    position: fixed;
+    font-size: 30px;
+    animation: fall linear forwards;
+    pointer-events: none;
 }
 
-@keyframes fall{
-
-    0%{
-        transform:translateY(-100px);
-        opacity:1;
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
     }
-
-    100%{
-        transform:translateY(110vh);
-        opacity:0;
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
     }
 }
 
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .card {
+        padding: 30px 20px;
+    }
+    
+    h1 {
+        font-size: 32px;
+    }
+    
+    p {
+        font-size: 15px;
+    }
+    
+    button {
+        padding: 12px 28px;
+        font-size: 15px;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <!-- ARKA PLAN KALPLERİ -->
-
 <script>
-
-for(let i=0;i<25;i++){
-
+for(let i = 0; i < 20; i++) {
     const bg = document.createElement("div");
-
     bg.classList.add("bg-heart");
-
-    bg.innerHTML = ["💖","💕","💗","💞","❤️"]
-    [Math.floor(Math.random()*5)];
-
+    bg.innerHTML = ["💖","💕","💗","💞","❤️"][Math.floor(Math.random()*5)];
     bg.style.left = Math.random()*100 + "vw";
-
-    bg.style.animationDuration =
-    (Math.random()*10+10) + "s";
-
-    bg.style.fontSize =
-    (Math.random()*20+18) + "px";
-
+    bg.style.animationDuration = (Math.random()*10+10) + "s";
+    bg.style.fontSize = (Math.random()*20+18) + "px";
     document.body.appendChild(bg);
 }
-
 </script>
 
 <!-- ANA KART -->
-
 <div class="card">
-
-<h1>📜 İlişki Sözleşmesi</h1>
-
-<p>
-Bu sözleşme 23.03.2026 tarihinden itibaren yürürlüğe girmiştir.<br><br>
-
-Taraflardan biri Ruşen'dir ❤️<br>
-Diğer taraf sonsuza kadar sevmeyi kabul eder.<br><br>
-
-Madde 1:<br>
-Birbirini sebepsiz yere özlemek normaldir.<br><br>
-
-Madde 2:<br>
-Sarılmalar sınırsızdır.<br><br>
-
-Madde 3:<br>
-Hayır butonu tamamen göstermeliktir 😌
-</p>
-
-<div class="buttons">
-
-<button id="yes">
-EVET 💍
-</button>
-
-<button id="no">
-HAYIR
-</button>
-
-</div>
-
-<div id="message"></div>
-
-</div>
-
-<!-- EVET SONRASI EKRAN -->
-
-<div id="loveScreen">
-
-<div class="love-title">
-❤️ Sözleşme Onaylandı ❤️
-</div>
-
-<div class="love-text">
-
-23 Mart 2026 19:42 tarihinden beri birlikte geçen süre:
-
-</div>
-
-<div id="counter"></div>
-
+    <h1>📜 İlişki Sözleşmesi</h1>
+    
+    <p>
+        Bu sözleşme 23.03.2026 tarihinden itibaren yürürlüğe girmiştir.<br><br>
+        
+        Taraflardan biri Ruşen'dir ❤️<br>
+        Diğer taraf sonsuza kadar sevmeyi kabul eder.<br><br>
+        
+        <strong>Madde 1:</strong><br>
+        Birbirini sebepsiz yere özlemek normaldir.<br><br>
+        
+        <strong>Madde 2:</strong><br>
+        Sarılmalar sınırsızdır.<br><br>
+        
+        <strong>Madde 3:</strong><br>
+        Hayır butonu gösterim amaçlıdır 😌
+    </p>
+    
+    <div class="buttons">
+        <button id="yes">EVET 💍</button>
+        <button id="no">HAYIR</button>
+    </div>
+    
+    <div id="message"></div>
 </div>
 
 <script>
-
-/* HAYIR BUTONU */
-
+/* HAYIR BUTONU - MOBİL FRIENDLY */
 const noBtn = document.getElementById("no");
 const message = document.getElementById("message");
+const yesBtn = document.getElementById("yes");
 
-function moveButton(){
-
-    const maxX =
-    window.innerWidth - noBtn.offsetWidth - 20;
-
-    const maxY =
-    window.innerHeight - noBtn.offsetHeight - 20;
-
+function moveButton() {
+    const maxX = window.innerWidth - noBtn.offsetWidth - 10;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 10;
+    
     const x = Math.random() * maxX;
     const y = Math.random() * maxY;
-
+    
     noBtn.style.left = x + "px";
     noBtn.style.top = y + "px";
+    
+    const texts = [
+        "oğlum ne diyon 😭",
+        "bu seçenek çalışmıyor 😌",
+        "kaçamazsın 💖",
+        "yanlış buton 😭",
+        "Ruşen bunu onaylamadı ❤️",
+        "hayır demek yasaklandı 🚫",
+        "yeniden dene 💕"
+    ];
+    
+    message.innerHTML = texts[Math.floor(Math.random() * texts.length)];
 }
 
-["mouseover","click","touchstart"].forEach(event => {
-
-    noBtn.addEventListener(event, () => {
-
+/* Her tıklamaya ve touch'a kaçsın */
+["click", "touchstart", "mouseover"].forEach(event => {
+    noBtn.addEventListener(event, (e) => {
+        e.preventDefault();
         moveButton();
-
-        const texts = [
-
-            "oğlum ne diyon 😭",
-            "bu seçenek çalışmıyor 😌",
-            "kaçamazsın 💖",
-            "yanlış buton 😭",
-            "Ruşen bunu onaylamadı ❤️",
-            "hayır demek yasaklandı 🚫"
-
-        ];
-
-        message.innerHTML =
-        texts[Math.floor(Math.random()*texts.length)];
-
     });
-
 });
 
-/* EVET */
-
-const yesBtn =
-document.getElementById("yes");
-
-const loveScreen =
-document.getElementById("loveScreen");
-
+/* EVET BUTONU */
 yesBtn.addEventListener("click", () => {
-
-    loveScreen.style.display = "flex";
-
-    /* KALP YAĞMURU */
-
-    for(let i=0;i<120;i++){
-
-        const heart =
-        document.createElement("div");
-
+    // Kalp yağmuru
+    for(let i = 0; i < 120; i++) {
+        const heart = document.createElement("div");
         heart.classList.add("heart");
-
-        const emojis = [
-            "💖",
-            "💕",
-            "💗",
-            "💞",
-            "❤️",
-            "😍"
-        ];
-
-        heart.innerHTML =
-        emojis[Math.floor(Math.random()*6)];
-
-        heart.style.left =
-        Math.random()*100 + "vw";
-
-        heart.style.animationDuration =
-        (Math.random()*3+2) + "s";
-
-        heart.style.fontSize =
-        (Math.random()*30+20) + "px";
-
+        const emojis = ["💖", "💕", "💗", "💞", "❤️", "😍"];
+        heart.innerHTML = emojis[Math.floor(Math.random() * 6)];
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        heart.style.fontSize = (Math.random() * 30 + 20) + "px";
         document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        },5000);
-
+        
+        setTimeout(() => heart.remove(), 5000);
     }
-
+    
+    // Sayaç sayfasını aç
+    setTimeout(() => {
+        window.location.href = "love.html";
+    }, 500);
 });
-
-/* CANLI SAYAÇ */
-
-const counter =
-document.getElementById("counter");
-
-const startDate =
-new Date("2026-03-23T19:42:00");
-
-function updateCounter(){
-
-    const now = new Date();
-
-    let diff = now - startDate;
-
-    const seconds =
-    Math.floor(diff / 1000) % 60;
-
-    const minutes =
-    Math.floor(diff / (1000*60)) % 60;
-
-    const hours =
-    Math.floor(diff / (1000*60*60)) % 24;
-
-    const totalDays =
-    Math.floor(diff / (1000*60*60*24));
-
-    const years =
-    Math.floor(totalDays / 365);
-
-    const months =
-    Math.floor((totalDays % 365) / 30);
-
-    const days =
-    (totalDays % 365) % 30;
-
-    counter.innerHTML =
-
-    `
-    ❤️ ${years} yıl<br>
-    💕 ${months} ay<br>
-    💖 ${days} gün<br>
-    ⏰ ${hours} saat<br>
-    🌸 ${minutes} dakika<br>
-    ✨ ${seconds} saniyedir birliktesiniz
-    `;
-
-}
-
-setInterval(updateCounter,1000);
-
-updateCounter();
-
 </script>
 
 </body>
