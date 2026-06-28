@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ Sonsuza Kadar Seninle</title>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    overflow: auto;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffbfd4 0%, #fff0f5 50%, #ffe4ec 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+}
+
+/* ARKA PLAN KALPLERİ */
+.bg-heart {
+    position: fixed;
+    font-size: 30px;
+    opacity: 0.1;
+    animation: float 15s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-120vh) rotate(360deg);
+    }
+}
+
+/* ANA KONTEYNER */
+.container {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    border-radius: 32px;
+    padding: 50px 30px;
+    text-align: center;
+    box-shadow: 0 15px 50px rgba(255, 105, 180, 0.2);
+    z-index: 10;
+    position: relative;
+}
+
+/* BAŞLIK */
+.title {
+    font-size: 48px;
+    color: #ff2f75;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 8px rgba(255, 47, 117, 0.15);
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #ff4f87;
+    margin-bottom: 35px;
+    font-weight: 500;
+}
+
+/* SAYAÇ */
+#counter {
+    font-size: 24px;
+    color: #ff2f75;
+    line-height: 2.2;
+    background: rgba(255, 79, 135, 0.08);
+    padding: 30px;
+    border-radius: 20px;
+    margin: 30px 0;
+    border: 2px solid rgba(255, 79, 135, 0.2);
+    font-weight: bold;
+}
+
+/* MESAJLAR */
+.messages {
+    margin: 35px 0;
+}
+
+.message-box {
+    background: linear-gradient(135deg, rgba(255, 79, 135, 0.08), rgba(255, 107, 157, 0.08));
+    padding: 25px;
+    border-radius: 18px;
+    margin: 20px 0;
+    border-left: 4px solid #ff4f87;
+    animation: slideIn 0.6s ease;
+}
+
+.message-box:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.message-box:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.message-box:nth-child(3) {
+    animation-delay: 0.5s;
+}
+
+.message-box:nth-child(4) {
+    animation-delay: 0.7s;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message-box p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 16px;
+    margin: 0;
+}
+
+.message-box strong {
+    color: #ff2f75;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+/* BUTON */
+.btn-home {
+    margin-top: 40px;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, #ff4f87, #ff6b9d);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(255, 79, 135, 0.3);
+    font-weight: bold;
+}
+
+.btn-home:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(255, 79, 135, 0.4);
+}
+
+.btn-home:active {
+    transform: scale(0.98);
+}
+
+/* YAĞAN KALPLER */
+.heart {
+    position: fixed;
+    font-size: 30px;
+    animation: fall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .container {
+        padding: 30px 20px;
+        border-radius: 24px;
+    }
+    
+    .title {
+        font-size: 36px;
+    }
+    
+    .subtitle {
+        font-size: 16px;
+    }
+    
+    #counter {
+        font-size: 18px;
+        padding: 20px;
+    }
+    
+    .message-box {
+        padding: 20px;
+        font-size: 14px;
+    }
+    
+    .message-box strong {
+        font-size: 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ARKA PLAN KALPLERİ -->
+<script>
+for(let i = 0; i < 25; i++) {
+    const bg = document.createElement("div");
+    bg.classList.add("bg-heart");
+    bg.innerHTML = ["💖","💕","💗","💞","❤️"][Math.floor(Math.random()*5)];
+    bg.style.left = Math.random()*100 + "vw";
+    bg.style.animationDuration = (Math.random()*10+12) + "s";
+    bg.style.fontSize = (Math.random()*25+20) + "px";
+    document.body.appendChild(bg);
+}
+</script>
+
+<!-- ANA KONTEYNER -->
+<div class="container">
+    <div class="title">❤️ Sonsuza Kadar Seninle ❤️</div>
+    <div class="subtitle">23 Mart 2026 19:42'den beri...</div>
+    
+    <!-- SAYAÇ -->
+    <div id="counter"></div>
+    
+    <!-- MESAJLAR -->
+    <div class="messages">
+        <div class="message-box">
+            <strong>💕 Seni Seviyorum</strong>
+            <p>Her gün seni daha çok seviş olmuşum. Gözlerinin içine baktığımda sonsuzluğu görüyorum ve hiç korkmuyorum çünkü sen oradasın...</p>
+        </div>
+        
+        <div class="message-box">
+            <strong>🌹 Seninle Olmak</strong>
+            <p>Senin yanında her an özel. Kahkahalarını duymak, elini tutmak, sadece var olmak... bunlar benim en güzel anılarım oldu.</p>
+        </div>
+        
+        <div class="message-box">
+            <strong>✨ Seninle Geleceğim</strong>
+            <p>Yıllar geçse de, zaman hızlı vs yavaş dönse de, bu sözleşme hiçbir zaman bitmeyecek. Seni sonsuza kadar sevmeyi seçiyorum.</p>
+        </div>
+        
+        <div class="message-box">
+            <strong>💑 Hep Birlikte</strong>
+            <p>İyi günler, kötü günler, zor günler... hiçbir şey fark etmez. Çünkü sen benimle olacaksın ve ben seni asla bırakmayacağım.</p>
+        </div>
+    </div>
+    
+    <button class="btn-home" onclick="window.location.href='index.html'">← Geri Dön</button>
+</div>
+
+<script>
+/* CANLI SAYAÇ */
+const counter = document.getElementById("counter");
+const startDate = new Date("2026-03-23T19:42:00");
+
+function updateCounter() {
+    const now = new Date();
+    let diff = now - startDate;
+    
+    const seconds = Math.floor(diff / 1000) % 60;
+    const minutes = Math.floor(diff / (1000 * 60)) % 60;
+    const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+    
+    const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const years = Math.floor(totalDays / 365);
+    const months = Math.floor((totalDays % 365) / 30);
+    const days = (totalDays % 365) % 30;
+    
+    counter.innerHTML = `
+        ❤️ ${years} yıl<br>
+        💕 ${months} ay<br>
+        💖 ${days} gün<br>
+        ⏰ ${hours} saat<br>
+        🌸 ${minutes} dakika<br>
+        ✨ ${seconds} saniyedir birliktesiniz
+    `;
+}
+
+setInterval(updateCounter, 1000);
+updateCounter();
+
+// Sayfa açılınca kalp yağmuru
+window.addEventListener('load', () => {
+    for(let i = 0; i < 100; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        const emojis = ["💖", "💕", "💗", "💞", "❤️", "😍"];
+        heart.innerHTML = emojis[Math.floor(Math.random() * 6)];
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        heart.style.fontSize = (Math.random() * 30 + 20) + "px";
+        document.body.appendChild(heart);
+        
+        setTimeout(() => heart.remove(), 5000);
+    }
+});
+</script>
+
+</body>
+</html>
